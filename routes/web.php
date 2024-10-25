@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TrainController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,8 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $title = "boolean laravel-10-template";
-
-    return view('layouts.app', compact("title"));
-});
+Route::get('/', [TrainController::class, "index"])->name("trains-index");
