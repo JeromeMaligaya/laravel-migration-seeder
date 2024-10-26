@@ -2,8 +2,7 @@
 
 @section('content')
 <div class="container">
-    <h1>Train List</h1>
-    <p>{{ $date_day }}</p>
+    <h4>Today is: {{ $date_day }}</h4>
     <table id="trains-table">
         <thead>
             <tr>
@@ -20,7 +19,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($trains as $train)
+            @forelse ($trains as $train)
                 <tr class="single-train">
                     <td>{{ $train->company }}</td>
                     <td>{{ $train->departure_station }}</td>
@@ -33,7 +32,9 @@
                     <td>{{ $train->on_time ? 'Yes' : 'No' }}</td>
                     <td>{{ $train->cancelled ? 'Yes' : 'No' }}</td>
                 </tr>
-            @endforeach
+            @empty
+                <h2 class="h2-message">There are no trains leaving today!</h2>
+            @endforelse
         </tbody>
     </table>
 </div>
