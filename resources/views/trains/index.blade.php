@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+<title>@yield("page-title", "Home")</title>
+
 @section('content')
 <div class="container">
     <h4>Today is: {{ $date_day }}</h4>
