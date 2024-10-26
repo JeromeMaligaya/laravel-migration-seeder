@@ -21,3 +21,37 @@ img {
     display: block;
     max-width: 100%;
 }
+
+// train table
+
+table {
+    margin: 20px 0;
+
+    th,
+    td {
+        padding: 12px;
+        text-align: left;
+        border: 1px solid #ddd;
+        height: 50px;
+    }
+
+    tr.single-train {
+        &:nth-child(odd) {
+            background-color: #f5f5f5;
+        }
+
+        &:nth-child(even) {
+            background-color: #ffffff;
+        }
+
+        &:hover {
+            background-color: olivedrab;
+            color: white;
+        }
+    }
+
+    th {
+        background-color: goldenrod;
+        color: white;
+    }
+}
