@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Models\Passenger;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Faker\Factoty as Faker;
+use Faker\Factory as Faker;
 
 
 class PassengerSeeder extends Seeder
@@ -15,8 +15,14 @@ class PassengerSeeder extends Seeder
      */
     public function run(): void
     {
-        $newPassenger = new Passenger();
-        $newPassenger->faker->numberBetween(1, 1000);
-        $newPassenger->save();
+        $faker = Faker::create();
+
+        for ($i = 0; $i < 50; $i++) {
+            $newPassenger = new Passenger();
+            $newPassenger->passenger_name = $faker->name;
+            $newPassenger->passenger_surname = $faker->lastname;
+            $newPassenger->passenger_seat = $faker->numberBetween(1, 1000);
+            $newPassenger->save();
+        }
     }
 }
