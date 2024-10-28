@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('passengers', function (Blueprint $table) {
             $table->id();
+            $table->tinyInteger("passenger_number")->unsigned()->nullable(false);
             $table->timestamps();
         });
     }
